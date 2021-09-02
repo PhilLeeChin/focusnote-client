@@ -3,7 +3,7 @@ const initialState = {
     note: ""
 }
 
-export default (state = initialState, action) => {
+export default function notepadForm(state = initialState, action){
     switch (action.type) {
         case "UPDATE_NEW_NOTEPAD":
             const returnValue = {
