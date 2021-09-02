@@ -4,19 +4,22 @@ import { updateSignup } from "../actions/signupForm.js"
 import { signup } from "../actions/currentUser.js"
 
 const Signup = ({ signupFormData, updateSignup, signup, history }) => {
+    state = {
+        name: "",
+        username: "",
+        password: "",
+    }
+
     const handleUserInfo = e => {
-        const { name, value } = e.target
-        const updatedForm = {
-            ...signupFormData, [name]: value
-        }
-        updateSignup(updatedForm)
+       this.setState({value: e.target.value})
+       updateSignup(this.state)
     }
 
     const handleSubmit = e => {
         e.preventDefault()
         signup(signupFormData, history)
     }
-    console.log(signupFormData)
+
     return (
         <form onSubmit={handleSubmit}>
             <input placeholder="name" value={signupFormData.name} name="name" type="text" onChange={handleUserInfo} />
