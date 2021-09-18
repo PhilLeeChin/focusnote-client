@@ -94,7 +94,7 @@ export const getCurrentUser = () => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                dispatch(getMyNotepads())
+                dispatch(getMyNotepads(response.data.attributes.notepads))
             }
         })
         .catch(console.log)
