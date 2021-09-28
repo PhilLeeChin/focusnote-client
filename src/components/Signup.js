@@ -28,7 +28,7 @@ class Signup extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <input placeholder="name" value={this.state.name} name="name" type="text" onChange={this.handleUserInfo} />
                 <input placeholder="username" value={this.state.username} name="username" type="text" onChange={this.handleUserInfo} />
-                <input placeholder="password" value={this.state.password} name="password" type="text" onChange={this.handleUserInfo} />
+                <input placeholder="password" value={this.state.password} name="password" type="password" onChange={this.handleUserInfo} />
                 <input type="submit" value="Signup" />
             </form>
         )
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {updateSignup, signup })(Signup)
+export default connect(mapStateToProps, { updateSignup, signup })(Signup)
