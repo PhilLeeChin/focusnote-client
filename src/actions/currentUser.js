@@ -31,7 +31,7 @@ export const login = (credentials, history) => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
-                dispatch(getMyNotepads())
+                // dispatch(getMyNotepads())
                 dispatch(resetLogin())
                 history.push('/')
             }
