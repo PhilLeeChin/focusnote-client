@@ -37,7 +37,7 @@ export const updateNotepadHit = notepad => {
 //async actions
 export const getMyNotepads = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/notepads", {
+        return fetch("http://localhost:3001/api/users/:user_id/notepads", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -63,7 +63,7 @@ export const createNotepad = (notepadData, history) => {
             note: notepadData.note,
             user_id: notepadData.userId
         }
-        return fetch("http://localhost:3001/api/notepads", {
+        return fetch("http://localhost:3001/api/users/:user_id/notepads", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -91,7 +91,7 @@ export const updateNotepad = (notepadData, history) => {
             title: notepadData.title,
             note: notepadData.note
         }
-        return fetch(`http://localhost:3001/api/notepads/${notepadData.notepadId}`,{
+        return fetch(`http://localhost:3001/api/users/:user_id/notepads/${notepadData.notepadId}`,{
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -114,7 +114,7 @@ export const updateNotepad = (notepadData, history) => {
 
 export const deleteNotepad = (notepadId, history) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/notepads/${notepadId}`, {
+        return fetch(`http://localhost:3001/api/users/:user_id/notepads/${notepadId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
