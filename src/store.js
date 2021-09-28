@@ -7,14 +7,21 @@ import signupForm from './reducers/signupForm.js'
 import notepadForm from './reducers/notepadForm.js'
 import users from './reducers/users.js'
 
-
-
 const reducer = combineReducers({
    currentUser, loginForm, myNotepads, signupForm, notepadForm, users
 })
+
+const state = {
+   currentUser: currentUser, 
+   loginForm: loginForm, 
+   myNotepads: myNotepads, 
+   signupForm: signupForm,
+   notepadForm: notepadForm, 
+   users: users
+}
   
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const note = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
+const note = createStore(reducer, state, composeEnhancer(applyMiddleware(thunk)))
 
 export default note
